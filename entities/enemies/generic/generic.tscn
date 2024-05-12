@@ -1,0 +1,120 @@
+[gd_scene load_steps=22 format=3 uid="uid://doq6a04oa08yk"]
+
+[ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_ntns0"]
+[ext_resource type="Texture2D" uid="uid://ddj00e6uc0kcf" path="res://assets/enemies/infantry/tier1/die_00.png" id="3_7fh8m"]
+[ext_resource type="Texture2D" uid="uid://bd0rbuowumkg5" path="res://assets/enemies/infantry/tier1/die_01.png" id="4_otqmj"]
+[ext_resource type="Texture2D" uid="uid://dwyuhw444iwvw" path="res://assets/enemies/infantry/tier1/die_02.png" id="5_avk18"]
+[ext_resource type="Texture2D" uid="uid://ckh6vufvugt1p" path="res://assets/enemies/infantry/tier1/die_03.png" id="6_56b2t"]
+[ext_resource type="Texture2D" uid="uid://ps3e1pytso2e" path="res://assets/enemies/infantry/tier1/die_04.png" id="7_o30m2"]
+[ext_resource type="Texture2D" uid="uid://bq5waf8ygl6nq" path="res://assets/enemies/infantry/tier1/die_05.png" id="8_qostd"]
+[ext_resource type="Texture2D" uid="uid://5y31y64tih4n" path="res://assets/enemies/infantry/tier1/die_06.png" id="9_i3p3k"]
+[ext_resource type="Texture2D" uid="uid://c6ybalus1ejpo" path="res://assets/enemies/infantry/tier1/idle_00.png" id="10_kw7hr"]
+[ext_resource type="Texture2D" uid="uid://d6lrrjjv2miy" path="res://assets/enemies/infantry/tier1/move_00.png" id="11_yumdp"]
+[ext_resource type="Texture2D" uid="uid://cp4lleluol0jt" path="res://assets/enemies/infantry/tier1/move_01.png" id="12_u4vux"]
+[ext_resource type="Texture2D" uid="uid://owstqf7x7mkr" path="res://assets/enemies/infantry/tier1/move_02.png" id="13_16tl5"]
+[ext_resource type="Texture2D" uid="uid://dlw6c7u2khxp" path="res://assets/enemies/infantry/tier1/move_03.png" id="14_v5d40"]
+[ext_resource type="Texture2D" uid="uid://c32vh3hogagsv" path="res://assets/enemies/infantry/tier1/move_04.png" id="15_dr4l2"]
+[ext_resource type="Texture2D" uid="uid://bakwd1r68eyvd" path="res://assets/enemies/infantry/tier1/move_05.png" id="16_7sc8r"]
+[ext_resource type="Texture2D" uid="uid://bigmeebbjg8p0" path="res://assets/enemies/infantry/tier1/move_06.png" id="17_oiyqf"]
+[ext_resource type="Texture2D" uid="uid://8yi85l6jhe53" path="res://assets/enemies/infantry/tier1/move_07.png" id="18_5hbdo"]
+[ext_resource type="AudioStream" uid="uid://b8yyvb42ow7c8" path="res://assets/sounds/infantry.wav" id="19_3hu4u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c3n7"]
+atlas = ExtResource("10_kw7hr")
+region = Rect2(0, 0, 90, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfy43"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7fh8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_otqmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_avk18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_56b2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_o30m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qostd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_i3p3k")
+}],
+"loop": false,
+"name": &"die",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c3n7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_yumdp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_u4vux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_16tl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_v5d40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dr4l2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7sc8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_oiyqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5hbdo")
+}],
+"loop": true,
+"name": &"move",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cagm2"]
+size = Vector2(51, 61)
+
+[node name="Generic" instance=ExtResource("1_ntns0")]
+collision_mask = 7
+script = null
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_nfy43")
+animation = &"die"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(2.5, -1.5)
+shape = SubResource("RectangleShape2D_cagm2")
+
+[node name="NavigationAgent2D" parent="." index="2"]
+avoidance_enabled = true
+radius = 24.0
+
+[node name="DefaultSound" parent="." index="3"]
+stream = ExtResource("19_3hu4u")
+volume_db = -12.0
+
+[node name="EntityHUD" parent="UI" index="0"]
+offset_left = -24.0
+offset_top = -52.0
+offset_right = -24.0
+offset_bottom = -52.0
+scale = Vector2(0.52381, 0.615381)
