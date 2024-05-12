@@ -1,7 +1,7 @@
 class_name MoveState
 extends State
 
-@onready var enemy := owner as Enemy
+@onready var enemy := owner as Creature
 
 func enter(sm: StateMachine, prev_state: State) -> void:
 	super(sm, prev_state)

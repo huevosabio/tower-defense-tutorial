@@ -633,6 +633,9 @@ autoplay = "move"
 
 [node name="Explosion" parent="." index="7" instance=ExtResource("113_qdpce")]
 
+[node name="StateMachine" parent="." index="8" node_paths=PackedStringArray("start_state")]
+start_state = NodePath("Move")
+
 [node name="Move" parent="StateMachine" index="0"]
 script = ExtResource("44_h3bam")
 

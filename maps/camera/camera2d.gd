@@ -28,3 +28,5 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and \
 			event.button_mask == MOUSE_BUTTON_MASK_MIDDLE:
 		position -= event.relative * drag_speed / zoom
+	if event is InputEventMagnifyGesture:
+		target_zoom = min(target_zoom * event.factor, max_zoom)

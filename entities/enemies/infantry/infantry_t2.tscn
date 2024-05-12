@@ -92,3 +92,6 @@ kill_reward = 200
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_hh6ca")
+
+[node name="StateMachine" parent="." index="4" node_paths=PackedStringArray("start_state")]
+start_state = NodePath("Move")

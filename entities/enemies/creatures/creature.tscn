@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://tgok7oyvah6b"]
+
+[ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_pec41"]
+[ext_resource type="Script" path="res://entities/enemies/creatures/creature.gd" id="2_gfcmb"]
+[ext_resource type="Texture2D" uid="uid://b2xd2c0wift1a" path="res://assets/enemies/creature/slug.png" id="3_4b2lw"]
+[ext_resource type="AudioStream" uid="uid://b8yyvb42ow7c8" path="res://assets/sounds/infantry.wav" id="19_s83iy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cagm2"]
+size = Vector2(51, 61)
+
+[node name="Creature" instance=ExtResource("1_pec41")]
+collision_mask = 7
+script = ExtResource("2_gfcmb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_4b2lw")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+scale = Vector2(0.1, 0.1)
+animation = &"move"
+autoplay = "move"
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(2.5, -1.5)
+shape = SubResource("RectangleShape2D_cagm2")
+
+[node name="NavigationAgent2D" parent="." index="3"]
+avoidance_enabled = true
+radius = 24.0
+
+[node name="DefaultSound" parent="." index="4"]
+stream = ExtResource("19_s83iy")
+volume_db = -12.0
+
+[node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("start_state")]
+start_state = NodePath("Move")
+
+[node name="EntityHUD" parent="UI" index="0"]
+offset_left = -24.0
+offset_top = -52.0
+offset_right = -24.0
+offset_bottom = -52.0
+scale = Vector2(0.52381, 0.615381)

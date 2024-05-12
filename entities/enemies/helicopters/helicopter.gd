@@ -6,6 +6,8 @@ extends Enemy
 @onready var shadow := $Shadow as AnimatedSprite2D
 
 func get_shooter() -> Shooter:
+	var script := GDScript.new()
+	
 	return shooter
 
 

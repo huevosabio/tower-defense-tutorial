@@ -45,6 +45,10 @@ func _move(delta: float) -> void:
 		nav_agent.set_velocity(new_velocity)
 	anim_sprite.global_rotation = _calculate_rot(anim_sprite.global_rotation,
 			velocity.angle(), rot_speed, delta)
+	print(
+			anim_sprite.sprite_frames.get_frame_texture(
+				"move", 0
+		))
 	collision_shape.global_rotation = _calculate_rot(collision_shape.global_rotation,
 			velocity.angle(), rot_speed, delta)
 

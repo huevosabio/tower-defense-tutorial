@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cl3qg1jiwhp7j" path="res://assets/ui/turret_menu/turret_missile_icon.png" id="4_mbtnk"]
 [ext_resource type="Texture2D" uid="uid://g6sr4f5s7dru" path="res://assets/ui/turret_menu/red_circle_cross.png" id="5_x6q40"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s65kl"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m7qpy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p82mg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s65kl"]
 
 [node name="TowerPopup" type="CanvasLayer"]
 script = ExtResource("1_j6nof")
@@ -94,9 +94,9 @@ offset_left = 565.0
 offset_top = -12.0
 offset_right = 646.0
 offset_bottom = 69.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_s65kl")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_m7qpy")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_p82mg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s65kl")
 icon = ExtResource("5_x6q40")
 icon_alignment = 1
 

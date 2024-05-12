@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/gun_shoot_03.png-5a001a7b938fa3fa74fd4e6e201a
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

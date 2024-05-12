@@ -115,6 +115,9 @@ radius = 24.0
 stream = ExtResource("19_my5tl")
 volume_db = -12.0
 
+[node name="StateMachine" parent="." index="4" node_paths=PackedStringArray("start_state")]
+start_state = NodePath("Move")
+
 [node name="EntityHUD" parent="UI" index="0"]
 offset_left = -24.0
 offset_top = -52.0
